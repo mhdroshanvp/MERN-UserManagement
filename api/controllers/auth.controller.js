@@ -30,7 +30,7 @@ export const signin = async (req, res, next) => {
     }
 
     const validPassword = bcryptjs.compareSync(password, user.password);
-    if (!validPassword) return next(errorHandler(401, "Wrong credentials"));
+    if (!validPassword) return next(errorHandler(401, "Wrong details"));
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     const { password: hashedPassword, ...rest } = user._doc;
@@ -75,8 +75,7 @@ export const google = async (req, res, next) => {
       await newUser.save();
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
       const { password: hashedPassword2, ...rest } = newUser._doc;
-      res
-        .cookie("access_token", token, {
+      res.cookie("access_token", token, {
           httpOnly: true,
           expires: new Date(Date.now() + 3600000),
         })

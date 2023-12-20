@@ -118,8 +118,9 @@ function Profile() {
     }
   };
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7 ">Profile</h1>
+    <div className="flex items-center justify-center h-screen">
+    <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 border border-gray-900 rounded-lg p-3 max-w-lg mx-auto">
+      <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="file"
@@ -193,6 +194,7 @@ function Profile() {
       <p className="text-green-700 mt-5">
         {updateSuccess && "User is updated successfully!"}
       </p>
+    </div>
     </div>
   );
 }

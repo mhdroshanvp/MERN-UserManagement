@@ -41,7 +41,8 @@ function SignUp() {
   };
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+<div className="flex items-center justify-center h-screen">
+  <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 p-3 border border-gray-900 rounded-lg">
       <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
@@ -80,6 +81,7 @@ function SignUp() {
         </Link>
       </div>
       <p className="text-red-700">{error && "Something went wrong!"}</p>
+    </div>
     </div>
   );
 }
